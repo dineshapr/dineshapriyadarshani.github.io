@@ -6,13 +6,24 @@ html,body {
     padding: 20px;
 }
 
-.page {
-    display: grid;
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.profile {
+  margin: 40px;
 }
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+}
+
+.container h1,h3 {
+  padding: 10px;
+  margin: 0;
 }
 
 .img {
@@ -40,7 +51,7 @@ html,body {
   .bar>li:before {
     content: '\25CF';
     margin-right: 10px;
-    font-size: 50px;
+    font-size: 20px;
   }
   .bar>li:after {
     position: absolute;
@@ -48,18 +59,19 @@ html,body {
     top: 0;
     content: '';
     border-left: 2px solid #eee;
-    margin-left: 15px;
+    margin-left: 5px;
     height: 100%;
   }
   .bar >li:first-of-type:after {
-    top: 25%;
+    top: 40%;
   }
   .bar >li:last-of-type:after {
-    top: -70%;
+    top: -60%;
   }
   .bar_content {
     padding-left: 40px;
   }
   .bar_header {
-    font-size: 30px;
+    font-size: 20px;
   }
+
