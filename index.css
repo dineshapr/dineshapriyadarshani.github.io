@@ -47,6 +47,8 @@ html,body {
   }
   .bar >li {
     position: relative;
+    display: flex;
+    padding-bottom: 10px;
   }
   .bar>li:before {
     content: '\25CF';
@@ -55,7 +57,6 @@ html,body {
   }
   .bar>li:after {
     position: absolute;
-    left: 0;
     top: 0;
     content: '';
     border-left: 2px solid #eee;
@@ -63,7 +64,7 @@ html,body {
     height: 100%;
   }
   .bar >li:first-of-type:after {
-    top: 40%;
+    top: 30%;
   }
   .bar >li:last-of-type:after {
     top: -60%;
