@@ -1,118 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dinesha Priyadarshani — Senior Software Engineer, Front-end</title>
+<meta name="description" content="Dinesha Priyadarshani is a senior front-end engineer in Colombo, Sri Lanka, building enterprise Angular and React applications.">
+<meta name="theme-color" content="#04060c">
+<meta property="og:title" content="Dinesha Priyadarshani — Front-end Engineer">
+<meta property="og:description" content="Seven years building enterprise Angular and React products. Colombo, Sri Lanka.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230a0c18'/%3E%3Ctext x='16' y='22.5' font-family='Georgia,serif' font-style='italic' font-size='20' text-anchor='middle' fill='%236f9bff'%3Ed%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#04060c;          /* page */
+  --ink-2:#0a0f1f;        /* raised */
+  --line:rgba(190,205,255,.13);
+  --line-2:rgba(190,205,255,.24);
+  --mist:#eaeefb;         /* text */
+  --steel:#98a2c0;        /* secondary text */
+  --dim:#6b7494;
+  --marigold:#6f9bff;     /* the one accent: electric blue */
+  --cobalt:#4f6bff;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --gutter:clamp(20px,5vw,72px);
+  --max:1180px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--mist);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--marigold);color:#04060c}
+:focus-visible{outline:2px solid var(--marigold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:-999px;top:12px;background:var(--marigold);color:#04060c;padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:12px}
+
+/* ── Nav: a small liquid-glass pill ─────────────────────────── */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:4px;padding:6px;border-radius:999px;
+  background:rgba(8,12,28,.46);border:1px solid var(--line);
+  -webkit-backdrop-filter:blur(18px) saturate(1.6);backdrop-filter:blur(18px) saturate(1.6);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 30px -12px rgba(0,0,0,.6)}
+.nav a{position:relative;font-size:14px;color:var(--steel);padding:8px 14px;border-radius:999px;transition:color .25s,background .25s}
+.nav a:hover{color:var(--mist)}
+.nav a.on{color:var(--mist);background:rgba(255,255,255,.08)}
+.nav .mark{font:italic 22px/1 var(--serif);color:var(--marigold);padding:6px 12px 8px}
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:140px 0 56px;isolation:isolate;overflow:hidden}
+#gl{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
+.hero::before{content:"";position:absolute;inset:0;z-index:-3;
+  background:radial-gradient(60% 60% at 78% 30%,rgba(70,130,255,.35),transparent 70%),radial-gradient(70% 70% at 20% 80%,rgba(79,107,255,.4),transparent 70%),var(--ink)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(4,6,12,.25) 0%,rgba(4,6,12,.1) 40%,var(--ink) 100%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr)}
+.role{font:400 15px/1.4 var(--sans);color:var(--steel);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.role i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--marigold);box-shadow:0 0 0 0 rgba(70,130,255,.6);animation:ping 2.6s ease-out infinite}
+@keyframes ping{70%,100%{box-shadow:0 0 0 12px rgba(70,130,255,0)}}
+h1{font:400 clamp(48px,11vw,176px)/.88 var(--serif);letter-spacing:-.035em}
+h1 span{display:block;overflow:hidden;padding:0 .12em .1em 0;margin-right:-.12em}
+h1 span b{display:block;font-weight:400;transform:translateY(105%);animation:rise 1.1s var(--ease) forwards}
+h1 span:nth-child(2) b{animation-delay:.12s;font-style:italic;color:var(--marigold);padding-left:.18em}
+@keyframes rise{to{transform:none}}
+.lede{max-width:34em;margin-top:34px;font-size:clamp(17px,1.5vw,20px);color:#c6cde6;opacity:0;animation:fade .9s ease .55s forwards}
+.lede em{font:italic 1.12em/1 var(--serif);color:var(--mist)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;opacity:0;animation:fade .9s ease .7s forwards}
+@keyframes fade{to{opacity:1}}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;font-weight:500;font-size:15px;transition:transform .25s var(--ease),background .25s,border-color .25s}
+.btn:active{transform:scale(.97)}
+.btn.solid{background:var(--marigold);color:#04060c}
+.btn.solid:hover{background:#a3c0ff}
+.btn.ghost{border:1px solid var(--line-2);background:rgba(255,255,255,.04);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.btn.ghost:hover{border-color:var(--mist)}
+.btn svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+
+.portrait{position:relative;justify-self:end;width:min(100%,340px);opacity:0;animation:fade 1s ease .35s forwards}
+.portrait .frame{border-radius:999px 999px 28px 28px;padding:8px;background:linear-gradient(160deg,rgba(255,255,255,.28),rgba(255,255,255,.04));
+  border:1px solid var(--line-2);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:999px 999px 22px 22px;filter:saturate(.95) contrast(1.02)}
+.portrait figcaption{margin-top:14px;font:400 12.5px/1.5 var(--mono);color:var(--steel);display:flex;justify-content:space-between;gap:12px}
+
+/* ── Sections ───────────────────────────────────────────────── */
+section{padding:clamp(80px,11vw,150px) 0;position:relative}
+.sec-head{display:grid;grid-template-columns:minmax(0,.35fr) minmax(0,1fr);gap:clamp(20px,5vw,80px);margin-bottom:clamp(36px,5vw,64px)}
+.sec-head h2{font:400 clamp(40px,5.6vw,76px)/.95 var(--serif);letter-spacing:-.025em}
+.sec-head h2 em{color:var(--marigold)}
+.sec-head p.k{font:400 13px/1.5 var(--mono);color:var(--dim);padding-top:14px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,.35fr) minmax(0,1fr);gap:clamp(20px,5vw,80px)}
+.about p{font:400 clamp(22px,2.5vw,32px)/1.38 var(--serif);color:#dfe4f7;max-width:30em}
+.about p + p{margin-top:1em;font:400 17px/1.7 var(--sans);color:var(--steel);max-width:36em}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;border-top:1px solid var(--line)}
+.facts div{padding:22px 0 0}
+.facts div + div{padding-left:24px;border-left:1px solid var(--line)}
+.facts b{display:block;font:400 clamp(40px,5vw,64px)/1 var(--serif);letter-spacing:-.03em}
+.facts span{display:block;margin-top:8px;font-size:14px;color:var(--steel)}
+
+/* Experience */
+.roles{list-style:none;position:relative}
+.roles li{display:grid;grid-template-columns:minmax(0,.35fr) minmax(0,1fr);gap:clamp(20px,5vw,80px);padding:30px 0;border-top:1px solid var(--line);position:relative}
+.roles li:last-child{border-bottom:1px solid var(--line)}
+.roles .when{font:400 13px/1.6 var(--mono);color:var(--dim);padding-top:6px}
+.roles li.now .when{color:var(--marigold)}
+.roles li.now .when::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--marigold);margin-right:9px;vertical-align:1px}
+.roles h3{font:400 clamp(24px,2.6vw,32px)/1.15 var(--serif);letter-spacing:-.01em}
+.roles .co{color:var(--steel);font-size:15px;margin:4px 0 12px}
+.roles p{color:#b6bedb;max-width:38em;font-size:16px}
+
+/* Work: a list that opens, not a grid of cards */
+.work{list-style:none;border-top:1px solid var(--line)}
+.work li{border-bottom:1px solid var(--line)}
+.work button{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:minmax(0,.35fr) minmax(0,1fr) auto;gap:clamp(20px,5vw,80px);align-items:center;padding:26px 0;transition:padding .45s var(--ease)}
+.work button:focus-visible{outline:2px solid var(--marigold);outline-offset:2px;border-radius:6px}
+.work .tag{font:400 13px/1.5 var(--mono);color:var(--dim);transition:color .3s}
+.work .nm{font:400 clamp(28px,3.8vw,52px)/1.05 var(--serif);letter-spacing:-.02em;transition:transform .5s var(--ease),color .3s}
+.work .plus{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-2);position:relative;transition:transform .5s var(--ease),background .3s,border-color .3s}
+.work .plus::before,.work .plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--mist);transform:translate(-50%,-50%);transition:transform .5s var(--ease),background .3s}
+.work .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.work button:hover .nm{transform:translateX(10px);color:#fff}
+.work button:hover .tag{color:var(--steel)}
+.work li.open .plus{background:var(--marigold);border-color:var(--marigold);transform:rotate(180deg)}
+.work li.open .plus::before,.work li.open .plus::after{background:#04060c}
+.work li.open .plus::after{transform:translate(-50%,-50%) rotate(0)}
+.work li.open .nm{color:var(--marigold)}
+.more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease)}
+.work li.open .more{grid-template-rows:1fr}
+.more > div{overflow:hidden}
+.more .in2{display:grid;grid-template-columns:minmax(0,.35fr) minmax(0,1fr);gap:clamp(20px,5vw,80px);padding:0 0 32px}
+.more p{color:#b6bedb;font-size:16.5px;max-width:38em}
+.stack{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;list-style:none;font:400 13px/1.4 var(--mono);color:var(--steel)}
+.stack li{border:0;padding:0}
+.stack li::before{content:"/ ";color:var(--dim)}
+
+/* Skills: set as typography, not tags */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,5vw,80px)}
+.skills div{padding:22px 0;border-top:1px solid var(--line)}
+.skills h3{font:400 13px/1.5 var(--mono);color:var(--dim);margin-bottom:8px}
+.skills p{font:400 clamp(20px,2vw,25px)/1.4 var(--serif);color:#e6eafb}
+.skills p i{color:var(--dim);font-style:normal;padding:0 .35em}
+.skills p i::after{content:"\200B"}
+
+/* Education + recognition */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,5vw,80px)}
+.col h3{font:400 13px/1.5 var(--mono);color:var(--dim);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.col ul{list-style:none}
+.col li{padding:0 0 22px}
+.col li b{display:block;font:400 24px/1.2 var(--serif);margin-bottom:4px}
+.col li span{display:block;color:var(--steel);font-size:15px}
+.col li small{display:block;color:var(--dim);font:400 12.5px/1.6 var(--mono);margin-top:4px}
+
+/* Contact */
+.contact{padding-bottom:40px;overflow:hidden}
+.contact::before{content:"";position:absolute;left:50%;bottom:-40%;width:90vw;height:70vw;max-width:1100px;transform:translateX(-50%);
+  background:radial-gradient(closest-side,rgba(70,130,255,.22),rgba(79,107,255,.14) 55%,transparent);filter:blur(30px);pointer-events:none;z-index:-1}
+.contact h2{font:400 clamp(48px,9vw,132px)/.9 var(--serif);letter-spacing:-.035em;max-width:11em}
+.contact h2 em{color:var(--marigold)}
+.mail{display:inline-block;margin-top:40px;font:400 clamp(22px,3.6vw,46px)/1.2 var(--serif);border-bottom:1px solid var(--line-2);padding-bottom:6px;transition:color .3s,border-color .3s;word-break:break-word}
+.mail:hover{color:var(--marigold);border-color:var(--marigold)}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.links a{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border:1px solid var(--line-2);border-radius:999px;font-size:15px;background:rgba(255,255,255,.03);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:border-color .25s,background .25s,transform .25s var(--ease)}
+.links a:hover{border-color:var(--mist);background:rgba(255,255,255,.07)}
+.links a:active{transform:scale(.97)}
+.links svg{width:18px;height:18px;fill:currentColor}
+footer{margin-top:clamp(70px,9vw,130px);padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--dim);font:400 12.5px/1.6 var(--mono)}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width:860px){
+  .hero{padding-top:110px}
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .portrait{justify-self:start;width:min(46%,176px);order:-1;margin-bottom:4px}
+  h1{font-size:clamp(44px,12.4vw,110px)}
+  .portrait figcaption{display:none}
+  .sec-head,.about,.roles li,.more .in2{grid-template-columns:minmax(0,1fr);gap:8px}
+  .work button{grid-template-columns:1fr auto;gap:6px 16px}
+  .work .tag{grid-column:1;grid-row:2}.work .nm{grid-column:1;grid-row:1}.work .plus{grid-column:2;grid-row:1 / span 2}
+  .skills,.two{grid-template-columns:minmax(0,1fr)}
+  .nav a:not(.mark){padding:8px 10px;font-size:13px}
+  .nav .hide-s{display:none}
+}
+@media (max-width:480px){.facts{grid-template-columns:1fr}.facts div + div{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:22px}.nav a:not(.mark):nth-child(n+5){display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
+  h1 span b{transform:none}.lede,.cta,.portrait{opacity:1}.reveal{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-    <div class="grid-container">
-        <div class="profile">
-            <div class="container">
-                <img class="img" src="src/Dinesha_Priyadarshani.jpg" alt="">
-            </div>
-            <div class="container">
-                <h1>Dinesha Priyadarshani</h1>
-            </div>
-            <div class="container">
-                <h3>dineshapriyadarshani96@gmail.com</h3>
-            </div>
-            <div class="container">
-                <a href="https://www.linkedin.com/in/dinesha-priyadarshani/" class="icon_container"><img class="icons" src="src/linkedin.svg" alt=""></a>
-                <a href="https://github.com/dineshapr" class="icon_container"><img class="icons" src="src/github.svg" alt=""></a>
-                <a href="https://stackoverflow.com/users/10359966/dinesha-priyadarshani" class="icon_container"><img class="icons" src="src/icons8-stack-overflow-144.png" alt=""></a>
-            </div>
-        </div>
-        <div>
-            <div class="container">
-                <h3>Work Experience</h3>
-            </div>
-            <div class="container">
-                <ul class="bar">
-                    <li><span class="bar_header">Senior Software Engineer  (Persistent Systems (Pvt.) Ltd, Colombo) - (Oct 2021 - Present)</span>
-                    </li>
-                    <li><span class="bar_header">Software Engineer  (Persistent Systems (Pvt.) Ltd, Colombo) -  (MAR 2020 - OCT 2021)</span>
-                    </li>
-                    <li><span class="bar_header">Trainee Software Engineer  (Persistent Systems (Pvt.) Ltd, Colombo) - (AUG 2019 - Mar 2020)</span>
-                    </li>
-                </ul>
-            </div>
+<a class="skip" href="#main">Skip to content</a>
 
-            
-            <div class="container">
-                <h3>Project Experience</h3>
-            </div>
-            <div class="container">
-                <ul>
-                    <li><span>Court Connect Inc</span>
-                        <div class="container">
-                            <p>Web application that combines the resource benefits of a Marketplace with unmatched process and quality controls to provide viability and credibility 
-                                to what is the Background Check industry's Best Practice (in-person searches) in USA. Two portals which one for partner that background check company
-                                (customer of CCI - retailers & wholesalers) and other one for court researchers. </p>
-                        </div>
-                        <div class="container">
-                            <p>Key Technologies: Angular 10 | 12, HTML 5, SCSS, PrimeNg 10 | 12, NgRx, TypeScript, JavaScript</p>
-                        </div>
-                    </li>
+<nav class="nav" aria-label="Primary">
+  <a class="mark" href="#top" aria-label="Home">d</a>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#work">Work</a>
+  <a href="#skills" class="hide-s">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-                    <li><span>AIDC Studio</span>
-                        <div class="container">
-                            <p>Web application that allows users to create custom workflows by dragging and dropping modules to a canvas and
-                                upload them directly to Zebra scanning devices by connecting through the device’s IP addresses. </p>
-                        </div>
-                        <div class="container">
-                            <p>Key Technologies: ReactJs, HTML 5, CSS, ReactBootstrap, JavaScript, CI/CD, Recoil</p>
-                        </div>
-                    </li>
-
-                    <li><span>PMEUI Admin Portal</span>
-                        <div class="container">
-                            <p>Admin portal for Partner, Service, Short Code, Application and Policy Management with report management part by Jasper report integration. 
-                                Done test automations for SOAP and REST micro services.</p>
-                        </div>
-                        <div class="container">
-                            <p> Key Technologies: Angular 8, HTML 5, Bootstrap 4, SCSS, Serenity, TypeScript, JavaScript</p>
-                        </div>
-                    </li>
-
-                    <li><span>GENWI - MMP</span>
-                        <div class="container">
-                            <p>Web portal for campaign management and carrier billing with subscription. Google carrier billing integration.</p>
-                        </div>
-                        <div class="container">
-                            <p>Key Technologies: Angular 8, TypeScript, HTML 5, Bootstrap 4, SCSS</p>
-                        </div>
-                    </li>
-                    <li><span>EMP Publisher</span>
-                        <div class="container">
-                            <p>API monetization, Eco System Monetization Platform is a web application Providing the versatility to implement virtually any business model, 
-                                setting it apart from the competition in its ability to adapt to evolving, new revenue models.</p>
-                        </div>
-                        <div class="container">
-                            <p>Key Technologies: Angular 6, HTML, Bootstrap, Sass, JavaScript, TypeScript</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="container">
-                <h3>Professional Skills</h3>
-            </div>
-            <div class="container">
-                <ul>
-                    <li><span>Front-End: Angular , ReactJs, TypeScript, JavaScript, HTML, Bootstrap, SCSS, PrimeNg 10|12</span>
-                    </li>
-                    <li><span>State Management: RxJs, NgRx, Recoil</span>
-                    </li>
-                    <li><span>Version Controllers: Github, BitBucket</span>
-                    </li>
-                    <li><span>IDE/Dev Tools: Intellij Idea, VS Code</span>
-                    </li>
-                    <li><span>Reporting Tools: Jira, Azure DevOps</span>
-                    </li>
-                </ul>
-            </div>
+<header class="hero" id="top">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="wrap" style="width:100%">
+    <div class="hero-grid">
+      <div>
+        <p class="role"><i></i>Senior Software Engineer · Front-end · Colombo</p>
+        <h1 aria-label="Dinesha Priyadarshani"><span><b>Dinesha</b></span><span><b>Priyadarshani</b></span></h1>
+        <p class="lede">I build the interfaces behind enterprise software: marketplaces, admin portals and device tooling. <em>Angular and React</em>, with an eye on the details people only notice when they’re wrong.</p>
+        <div class="cta">
+          <a class="btn solid" href="#work">See my work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn ghost" href="mailto:dineshapriyadarshani96@gmail.com">Say hello</a>
         </div>
       </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="about">
+  <div class="wrap">
+    <div class="about reveal">
+      <p class="k" style="font:400 13px/1.5 var(--mono);color:var(--dim);padding-top:14px;max-width:none">About</p>
+      <div>
+        <p>I turn complicated workflows into screens that feel obvious. For <span data-years>seven</span> years I’ve shipped front-ends for US and global clients, from background-check marketplaces to drag-and-drop tooling that pushes workflows onto scanners.</p>
+        <p>I care about clean architecture, predictable state and interfaces that stay fast as they grow. I’m currently consulting on front-end architecture for Court Connect, and studying for a Master’s in Computer Science, researching an AI model for the Sinhala language.</p>
+        <div class="facts">
+          <div><b data-years-n>7</b><span>years building for the web</span></div>
+          <div><b>5</b><span>enterprise products shipped</span></div>
+          <div><b>2</b><span>awards from Persistent Systems</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="k">Experience</p><h2>Seven years, <em>one craft.</em></h2></div>
+    <ol class="roles">
+      <li class="now reveal"><div class="when">Jul 2025 – Present</div><div><h3>Senior Software Engineer, Consulting</h3><div class="co">Court Connect Inc</div><p>Consulting on front-end architecture for the Court Connect platform, a US background-check marketplace.</p></div></li>
+      <li class="reveal"><div class="when">Oct 2022 – Jul 2025</div><div><h3>Senior Software Engineer</h3><div class="co">Persistent Systems, Colombo</div><p>Led front-end development of complex Angular and React applications and delivered scalable UI for enterprise clients across several domains. Won a Customer Appreciation Award and a Hard Work Award.</p></div></li>
+      <li class="reveal"><div class="when">Mar 2020 – Oct 2022</div><div><h3>Software Engineer</h3><div class="co">Persistent Systems, Colombo</div><p>Built and maintained Angular web portals, integrated REST and SOAP services, and managed state with NgRx and RxJS.</p></div></li>
+      <li class="reveal"><div class="when">Aug 2019 – Mar 2020</div><div><h3>Trainee Software Engineer</h3><div class="co">Persistent Systems, Colombo</div><p>Started in front-end development with Angular, HTML5, SCSS and TypeScript.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="k">Selected work</p><h2>Products I’ve <em>shipped.</em></h2></div>
+    <ul class="work reveal" id="workList">
+      <li class="open">
+        <button aria-expanded="true"><span class="tag">Angular · Marketplace</span><span class="nm">Court Connect</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="more"><div><div class="in2"><span></span><div>
+          <p>A US marketplace that brings process and quality controls to in-person court searches, the gold standard of the background-check industry. Two portals: one for partner companies (retailers and wholesalers) and one for the court researchers who do the searching.</p>
+          <ul class="stack"><li>Angular 10/12</li><li>NgRx</li><li>PrimeNG</li><li>SCSS</li><li>TypeScript</li></ul>
+        </div></div></div></div>
+      </li>
+      <li>
+        <button aria-expanded="false"><span class="tag">React · Workflow builder</span><span class="nm">AIDC Studio</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="more"><div><div class="in2"><span></span><div>
+          <p>Users build custom workflows by dragging modules onto a canvas, then upload them straight to Zebra scanning devices over the device’s IP address.</p>
+          <ul class="stack"><li>React</li><li>ReactFlow</li><li>Recoil</li><li>React-Bootstrap</li><li>CI/CD</li></ul>
+        </div></div></div></div>
+      </li>
+      <li>
+        <button aria-expanded="false"><span class="tag">Angular · Admin portal</span><span class="nm">PMEUI Admin</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="more"><div><div class="in2"><span></span><div>
+          <p>An admin portal for managing partners, services, short codes, applications and policies, with Jasper reporting built in. I also wrote the test automation for its SOAP and REST microservices.</p>
+          <ul class="stack"><li>Angular 8</li><li>NgRx</li><li>PrimeNG</li><li>SCSS</li><li>Jasper Reports</li><li>Serenity</li></ul>
+        </div></div></div></div>
+      </li>
+      <li>
+        <button aria-expanded="false"><span class="tag">Angular · Billing</span><span class="nm">GENWI MMP</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="more"><div><div class="in2"><span></span><div>
+          <p>A web portal for campaign management and subscription-based carrier billing, including the Google carrier billing integration.</p>
+          <ul class="stack"><li>Angular 8</li><li>TypeScript</li><li>Bootstrap 4</li><li>SCSS</li></ul>
+        </div></div></div></div>
+      </li>
+      <li>
+        <button aria-expanded="false"><span class="tag">Angular · API monetization</span><span class="nm">EMP Publisher</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="more"><div><div class="in2"><span></span><div>
+          <p>An ecosystem monetization platform for APIs, flexible enough to support almost any business model and adapt as new revenue models appear.</p>
+          <ul class="stack"><li>Angular 6</li><li>TypeScript</li><li>Bootstrap</li><li>Sass</li></ul>
+        </div></div></div></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="k">Toolbox</p><h2>What I <em>reach for.</em></h2></div>
+    <div class="skills reveal">
+      <div><h3>Frameworks &amp; languages</h3><p>Angular<i>/</i>React<i>/</i>TypeScript<i>/</i>JavaScript<i>/</i>Java</p></div>
+      <div><h3>Markup &amp; styling</h3><p>HTML5<i>/</i>SCSS<i>/</i>Bootstrap<i>/</i>Tailwind CSS</p></div>
+      <div><h3>State</h3><p>NgRx<i>/</i>RxJS<i>/</i>Recoil</p></div>
+      <div><h3>UI libraries</h3><p>PrimeNG<i>/</i>React-Bootstrap<i>/</i>ReactFlow</p></div>
+      <div><h3>Integration</h3><p>REST APIs<i>/</i>SOAP<i>/</i>Jasper Reports</p></div>
+      <div><h3>Workflow</h3><p>Git, GitHub, Bitbucket<i>/</i>Jira, Azure DevOps<i>/</i>CI/CD<i>/</i>VS Code, IntelliJ</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="k">Learning &amp; recognition</p><h2>Always <em>studying.</em></h2></div>
+    <div class="two reveal">
+      <div class="col"><h3>Education</h3><ul>
+        <li><b>MSc in Computer Science</b><span>University of Colombo School of Computing</span><small>In progress · Research: E2R AI model for the Sinhala language</small></li>
+        <li><b>BSc in Computer Science</b><span>University of Colombo School of Computing</span><small>2017 – 2020</small></li>
+      </ul></div>
+      <div class="col"><h3>Certifications &amp; awards</h3><ul>
+        <li><b>Customer Appreciation Award</b><span>Persistent Systems</span></li>
+        <li><b>Hard Work Award, UI Developer</b><span>Persistent Systems</span></li>
+        <li><b>Front-End Web Development with React</b><span>Coursera</span></li>
+        <li><b>NgRx (with NgRx Data), the complete guide</b><span>Udemy · Angular 17</span></li>
+        <li><b>Git for Geeks</b><span>Udemy</span></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">Have something <em>complicated</em> to make simple?</h2>
+    <a class="mail reveal" href="mailto:dineshapriyadarshani96@gmail.com">dineshapriyadarshani96@gmail.com</a>
+    <div class="links reveal">
+      <a href="https://www.linkedin.com/in/dinesha-priyadarshani/" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+      <a href="https://github.com/dineshapr" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>GitHub</a>
+      <a href="https://stackoverflow.com/users/10359966/dinesha-priyadarshani" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21v-6h2v8H3v-8h2v6h10zM6.4 14.6l9.8 2 .4-2-9.8-2-.4 2zm1.3-4.7 9.1 4.2.8-1.8-9.1-4.2-.8 1.8zm2.5-4.4 7.7 6.4 1.3-1.5-7.7-6.4-1.3 1.5zM14.8 1l-1.6 1.2 6 8 1.6-1.2-6-8zM6 19h9v-2H6v2z"/></svg>Stack Overflow</a>
+    </div>
+    <footer><span>© <span id="yr">2026</span> Dinesha Priyadarshani</span><span>Designed and built by hand. No framework, one file.</span></footer>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  /* years of experience since Aug 2019, kept honest automatically */
+  var words=["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve"];
+  var start=new Date(2019,7,1),now=new Date();
+  var yrs=Math.max(1,Math.floor((now-start)/31557600000));
+  document.querySelectorAll("[data-years]").forEach(function(e){e.textContent=words[yrs]||yrs});
+  document.querySelectorAll("[data-years-n]").forEach(function(e){e.textContent=yrs});
+  var yr=document.getElementById("yr");if(yr)yr.textContent=now.getFullYear();
+
+  /* reveal on scroll */
+  var items=document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+    items.forEach(function(el){io.observe(el)});
+  }else items.forEach(function(el){el.classList.add("in")});
+
+  /* work list: one open at a time */
+  var list=document.getElementById("workList");
+  list.addEventListener("click",function(ev){
+    var b=ev.target.closest("button");if(!b)return;
+    var li=b.parentElement,was=li.classList.contains("open");
+    list.querySelectorAll("li.open").forEach(function(o){o.classList.remove("open");o.querySelector("button").setAttribute("aria-expanded","false")});
+    if(!was){li.classList.add("open");b.setAttribute("aria-expanded","true")}
+  });
+
+  /* active nav link */
+  var links=[].slice.call(document.querySelectorAll(".nav a[href^='#']:not(.mark)"));
+  var map={};links.forEach(function(a){map[a.getAttribute("href").slice(1)]=a});
+  if("IntersectionObserver" in window){
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){links.forEach(function(a){a.classList.remove("on")});var id=e.target.id==="learning"?"skills":e.target.id;if(map[id])map[id].classList.add("on")}
+    })},{rootMargin:"-45% 0px -50% 0px"});
+    ["about","experience","work","skills","learning","contact"].forEach(function(id){var el=document.getElementById(id);if(el)so.observe(el)});
+  }
+
+  /* ── Hero: flowing shader gradient (plain WebGL, no dependencies) ── */
+  var c=document.getElementById("gl");
+  var gl=c.getContext("webgl",{antialias:false,alpha:true,powerPreference:"low-power"});
+  if(!gl)return;
+  var vs="attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+  var fs="precision mediump float;uniform vec2 r;uniform float t;uniform vec2 m;"+
+  "float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}"+
+  "float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}"+
+  "float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(p);p*=2.02;a*=.5;}return v;}"+
+  "void main(){vec2 uv=gl_FragCoord.xy/r;float asp=r.x/r.y;vec2 q=vec2(uv.x*asp,uv.y);"+
+  "float s=t*.06;"+
+  "vec2 w=vec2(fbm(q*1.4+vec2(s,-s)+m*.4),fbm(q*1.4+vec2(-s,s)+5.2));"+
+  "float f=fbm(q*1.1+w*2.2+vec2(0.,s));"+
+  "vec3 ink=vec3(.016,.024,.047);vec3 indigo=vec3(.05,.1,.38);vec3 cobalt=vec3(.2,.42,1.);vec3 gold=vec3(.3,.62,1.);"+
+  "vec3 col=mix(ink,indigo,smoothstep(.2,.62,f));col=mix(col,cobalt,smoothstep(.5,.85,f)*.75);"+
+  /* warm bloom hugging the portrait side, wobbling with the flow */
+  "float g=smoothstep(.62,0.,distance(uv,vec2(.78,.6)+(w-.5)*.22+(m-.5)*.05));col=mix(col,gold,g*g*.85);"+
+  "float vg=smoothstep(1.2,.2,distance(uv,vec2(.5,.55)));col*=.55+.45*vg;"+
+  "col+=(h(gl_FragCoord.xy+t)-.5)*.025;gl_FragColor=vec4(col,1.);}";
+  function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return gl.getShaderParameter(s,gl.COMPILE_STATUS)?s:null}
+  var v=sh(gl.VERTEX_SHADER,vs),f=sh(gl.FRAGMENT_SHADER,fs);if(!v||!f)return;
+  var pr=gl.createProgram();gl.attachShader(pr,v);gl.attachShader(pr,f);gl.linkProgram(pr);
+  if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return;
+  gl.useProgram(pr);
+  var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+  var loc=gl.getAttribLocation(pr,"p");gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  var uR=gl.getUniformLocation(pr,"r"),uT=gl.getUniformLocation(pr,"t"),uM=gl.getUniformLocation(pr,"m");
+  var mx=.5,my=.5,tx=.5,ty=.5,vis=true,raf=0,t0=performance.now();
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function size(){var d=Math.min(window.devicePixelRatio||1,1.25),w=c.clientWidth,h=c.clientHeight;
+    c.width=Math.max(1,Math.round(w*d*.6));c.height=Math.max(1,Math.round(h*d*.6));gl.viewport(0,0,c.width,c.height)}
+  function draw(now){
+    mx+=(tx-mx)*.04;my+=(ty-my)*.04;
+    gl.uniform2f(uR,c.width,c.height);gl.uniform1f(uT,reduce?8:(now-t0)/1000);gl.uniform2f(uM,mx,my);
+    gl.drawArrays(gl.TRIANGLES,0,3);
+  }
+  function loop(now){if(vis&&!document.hidden)draw(now);raf=reduce?0:requestAnimationFrame(loop)}
+  size();window.addEventListener("resize",size);
+  window.addEventListener("pointermove",function(e){tx=e.clientX/innerWidth;ty=1-e.clientY/innerHeight},{passive:true});
+  new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(c);
+  draw(performance.now());
+  if(!reduce)raf=requestAnimationFrame(loop);
+})();
+</script>
 </body>
 </html>
